@@ -1,1 +1,793 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Carel Assonkeng Takoumene · Senior DevOps & Cloud Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    /* Soft, clear light theme — easy on the eyes */
+    --bg-primary: #f7f9fc;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-soft: #f0f3f8;
+    --border-subtle: #e4e9f2;
+    --border-hover: #cbd5e1;
+    --text-primary: #1a2c3e;
+    --text-secondary: #2c3e50;
+    --text-muted: #5a6e7c;
+    --accent-cyan: #0e7c9e;
+    --accent-green: #2b6e4f;
+    --accent-blue: #2c6e9e;
+    --accent-purple: #6b4c9a;
+    --accent-pink: #c94f7c;
+    --gradient-1: linear-gradient(135deg, #1e6f9f 0%, #2c6e9e 50%, #6b4c9a 100%);
+    --gradient-2: linear-gradient(120deg, #2b6e4f 0%, #1e6f9f 100%);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.08);
+  }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    scroll-behavior: smooth;
+  }
+
+  /* Subtle background pattern — very light */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .portfolio {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Hero Section */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem 0 2.5rem;
+    border-bottom: 2px solid var(--border-subtle);
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-1);
+    border-radius: 3px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(28, 100, 142, 0.08);
+    border: 1px solid rgba(28, 100, 142, 0.2);
+    padding: 5px 16px;
+    border-radius: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: var(--accent-cyan);
+    margin-bottom: 1.2rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .highlight-name {
+    display: block;
+    color: var(--accent-blue);
+    background: none;
+  }
+
+  .title-tagline {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+    border-left: 3px solid var(--accent-green);
+    padding-left: 1rem;
+  }
+
+  .contact-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    background: var(--bg-soft);
+    padding: 6px 14px;
+    border-radius: 40px;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.2s;
+  }
+
+  .contact-item:hover {
+    border-color: var(--accent-cyan);
+    background: white;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .contact-item i {
+    width: 18px;
+    color: var(--accent-blue);
+  }
+
+  .contact-item a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .contact-item a:hover {
+    color: var(--accent-blue);
+  }
+
+  /* Photo Card */
+  .photo-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 32px;
+    padding: 0.6rem;
+    transition: all 0.25s;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .photo-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-md);
+  }
+
+  .photo-frame {
+    width: 150px;
+    height: 160px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--bg-soft);
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .photo-label {
+    text-align: center;
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+  }
+
+  /* Sections */
+  .section {
+    margin: 3rem 0;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: -0.3px;
+    color: var(--text-primary);
+  }
+
+  .section-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--border-subtle), transparent);
+  }
+
+  /* Summary Block */
+  .summary-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 28px;
+    padding: 1.8rem;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .summary-block:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .summary-text {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1.8rem;
+    border-left: 3px solid var(--accent-green);
+    padding-left: 1.2rem;
+  }
+
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: space-between;
+  }
+
+  .stat-item {
+    background: var(--bg-soft);
+    border-radius: 20px;
+    padding: 0.8rem 1.2rem;
+    text-align: center;
+    flex: 1;
+    min-width: 90px;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.2s;
+  }
+
+  .stat-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-hover);
+    background: white;
+  }
+
+  .stat-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    line-height: 1.2;
+  }
+
+  .stat-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* Skills */
+  .skills-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .skill-category {
+    padding: 1.3rem 1.8rem;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: background 0.2s;
+  }
+
+  .skill-category:hover {
+    background: var(--bg-soft);
+  }
+
+  .skill-category:last-child {
+    border-bottom: 0;
+  }
+
+  .skill-title {
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-green);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    background: var(--bg-soft);
+    border: 1px solid var(--border-subtle);
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 0.73rem;
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+  }
+
+  .skill-tag:hover {
+    border-color: var(--accent-cyan);
+    background: white;
+    color: var(--accent-cyan);
+  }
+
+  /* Experience Cards */
+  .exp-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .exp-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-hover);
+  }
+
+  .exp-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.6rem;
+    cursor: pointer;
+    gap: 1rem;
+  }
+
+  .exp-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 170px;
+  }
+
+  .exp-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--accent-purple);
+    font-weight: 600;
+  }
+
+  .exp-company {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+  }
+
+  .exp-location {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+
+  .exp-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--accent-blue);
+    flex: 2;
+  }
+
+  .toggle-icon {
+    font-size: 0.9rem;
+    color: var(--accent-blue);
+    background: var(--bg-soft);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+  }
+
+  .exp-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    padding: 0 1.6rem;
+  }
+
+  .exp-body.open {
+    max-height: 800px;
+    padding: 0 1.6rem 1.2rem 1.6rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .bullet-list {
+    list-style: none;
+    margin-top: 0.8rem;
+  }
+
+  .bullet-list li {
+    margin-bottom: 0.7rem;
+    padding-left: 1.4rem;
+    position: relative;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  .bullet-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-size: 0.8rem;
+  }
+
+  /* Projects Grid */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 1.4rem;
+    transition: all 0.25s;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--border-hover);
+  }
+
+  .project-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent-blue);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .project-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .project-stack span {
+    background: var(--bg-soft);
+    border: 1px solid var(--border-subtle);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--accent-green);
+  }
+
+  /* Education */
+  .edu-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 24px;
+    padding: 1.2rem 1.6rem;
+    margin-bottom: 1.2rem;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .edu-item:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .edu-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent-purple);
+    min-width: 100px;
+    font-weight: 600;
+  }
+
+  .edu-degree {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+  }
+
+  /* Certifications */
+  .cert-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .cert-item {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent-green);
+    padding: 0.9rem 1.3rem;
+    border-radius: 20px;
+    flex: 1;
+    min-width: 200px;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .cert-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .cert-name {
+    font-weight: 700;
+    font-size: 0.88rem;
+  }
+
+  .cert-meta {
+    font-size: 0.68rem;
+    color: var(--accent-blue);
+    margin-top: 4px;
+    font-family: monospace;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 2rem;
+    letter-spacing: 0.3px;
+  }
+
+  @media (max-width: 780px) {
+    .portfolio {
+      padding: 1rem 1.2rem 2rem;
+    }
+    .hero {
+      flex-direction: column;
+    }
+    .exp-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .stats-grid {
+      gap: 0.8rem;
+    }
+    .section-title {
+      font-size: 1.15rem;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="portfolio">
+
+  <div class="hero">
+    <div class="hero-info">
+      <div class="badge">
+        <i class="fas fa-cube"></i>  <span>DEVOPS · CLOUD NATIVE · SRE MINDSET</span>
+      </div>
+      <h1>Carel <span class="highlight-name">Assonkeng Takoumene</span></h1>
+      <div class="title-tagline">Senior Cloud & Infrastructure Engineer — Building scalable, secure, and observable systems</div>
+      <div class="contact-bar">
+        <span class="contact-item"><i class="fas fa-phone-alt"></i> +1 (587) 545-9096</span>
+        <span class="contact-item"><i class="fas fa-envelope"></i> takoumenecarel@icloud.com</span>
+        <span class="contact-item"><i class="fab fa-linkedin-in"></i> <a href="#">carel-assonkeng</a></span>
+        <span class="contact-item"><i class="fas fa-map-marker-alt"></i> Edmonton, AB, Canada</span>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-frame">
+        <img src="https://i.postimg.cc/9fCHpDyF/Carel.png" alt="Carel Assonkeng Takoumene">
+      </div>
+      <p class="photo-label">// CAREL · 2025</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">⚡ impact driven</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="summary-block">
+      <div class="summary-text">
+        Senior DevOps & Cloud Engineer with 7+ years designing secure, automated, and resilient cloud infrastructure.  
+        Expert in AWS, Kubernetes, CI/CD, DevSecOps, and Infrastructure as Code. Successfully reduced deployment times by 40%, saved $72K annually via cost optimization, and delivered 99.9% uptime through observability and GitOps workflows.
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-number">7+</div><div class="stat-label">Years</div></div>
+        <div class="stat-item"><div class="stat-number">40%</div><div class="stat-label">Faster Deploys</div></div>
+        <div class="stat-item"><div class="stat-number">$72k</div><div class="stat-label">Annual Savings</div></div>
+        <div class="stat-item"><div class="stat-number">99.9%</div><div class="stat-label">Uptime</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">⎇ core capabilities</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-wrapper">
+      <div class="skill-category"><div class="skill-title"><i class="fas fa-cloud"></i> Cloud & Infra</div><div class="skill-tag-container"><span class="skill-tag">AWS (EKS/ECS/S3/VPC)</span><span class="skill-tag">Azure</span><span class="skill-tag">GCP basics</span></div></div>
+      <div class="skill-category"><div class="skill-title"><i class="fas fa-code-branch"></i> CI/CD & GitOps</div><div class="skill-tag-container"><span class="skill-tag">GitHub Actions</span><span class="skill-tag">ArgoCD</span><span class="skill-tag">GitLab CI</span><span class="skill-tag">Jenkins</span></div></div>
+      <div class="skill-category"><div class="skill-title"><i class="fas fa-shield-alt"></i> DevSecOps</div><div class="skill-tag-container"><span class="skill-tag">SonarQube</span><span class="skill-tag">Snyk/Trivy</span><span class="skill-tag">HashiCorp Vault</span><span class="skill-tag">IAM zero-trust</span></div></div>
+      <div class="skill-category"><div class="skill-title"><i class="fas fa-cubes"></i> Orchestration & IaC</div><div class="skill-tag-container"><span class="skill-tag">Kubernetes/EKS</span><span class="skill-tag">Terraform</span><span class="skill-tag">Helm</span><span class="skill-tag">Ansible</span><span class="skill-tag">CloudFormation</span></div></div>
+      <div class="skill-category"><div class="skill-title"><i class="fas fa-chart-line"></i> Observability</div><div class="skill-tag-container"><span class="skill-tag">CloudWatch</span><span class="skill-tag">Prometheus/Grafana</span><span class="skill-tag">Datadog</span><span class="skill-tag">ELK/Splunk</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">📌 experience timeline</div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header" onclick="toggleExp(this)">
+        <div class="exp-meta"><span class="exp-date">JAN 2022 – PRESENT</span><span class="exp-company">UPS · Toronto, ON</span><span class="exp-location">Senior DevOps Engineer</span></div>
+        <div class="exp-title">Cloud Infrastructure & Platform Lead</div>
+        <div class="toggle-icon"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="exp-body">
+        <ul class="bullet-list">
+          <li>Architect full AWS IaC with Terraform managing 100+ resources across 4 environments → 60% faster provisioning.</li>
+          <li>End-to-end CI/CD (GitHub Actions + ArgoCD) integrating SAST/SCA, cutting deployment time from 2h → 45min.</li>
+          <li>Optimized EKS clusters & spot instances reducing cloud costs by 30%, saving $72K yearly.</li>
+          <li>Hardened security with Vault, IAM least privilege, Trivy scanning, compliance to 95%.</li>
+          <li>Built Python Lambda cost-scheduler that auto-terminates non-prod resources off-hours.</li>
+          <li>Monitoring stack: Prometheus, Grafana, CloudWatch, ELK, decreased MTTR by 38%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header" onclick="toggleExp(this)">
+        <div class="exp-meta"><span class="exp-date">APR 2020 – JAN 2022</span><span class="exp-company">Little Potatoes Co. · Nisku, AB</span><span class="exp-location">Linux & Systems Engineer</span></div>
+        <div class="exp-title">Infrastructure Automation</div>
+        <div class="toggle-icon"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="exp-body">
+        <ul class="bullet-list">
+          <li>Managed Red Hat/Ubuntu fleet (99.9% uptime), automated configs with Ansible & Bash → 45% faster patching.</li>
+          <li>HAProxy+Nginx load balancing increased throughput by 30% for internal APIs.</li>
+          <li>Deployed centralized logging (Splunk) & Datadog monitoring, cut MTTR by 35%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header" onclick="toggleExp(this)">
+        <div class="exp-meta"><span class="exp-date">DEC 2017 – APR 2020</span><span class="exp-company">Educational Institution · Cameroon</span><span class="exp-location">CS Faculty</span></div>
+        <div class="exp-title">Lecturer & Lab Developer</div>
+        <div class="toggle-icon"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="exp-body">
+        <ul class="bullet-list"><li>Taught Linux, algorithms, networking, and system design to 800+ students, fostering hands-on labs.</li></ul>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-header" onclick="toggleExp(this)">
+        <div class="exp-meta"><span class="exp-date">FEB 2015 – DEC 2017</span><span class="exp-company">Leader Informatique · Cameroon</span><span class="exp-location">IT Support Specialist</span></div>
+        <div class="exp-title">Technical Support & Knowledge Base</div>
+        <div class="toggle-icon"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="exp-body">
+        <ul class="bullet-list"><li>Resolved 500+ hardware/network issues, built internal documentation reducing recurrent tickets by 25%.</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><div class="section-title">⚙️ featured engineering</div><div class="section-line"></div></div>
+    <div class="project-grid">
+      <div class="project-card"><div class="project-name"><i class="fas fa-dollar-sign"></i> Serverless FinOps</div><div class="project-desc">AWS Lambda that auto-identifies idle/stale resources, on-demand scheduling; cut cloud spend 30% → $72k saved annually.</div><div class="project-stack"><span>Lambda</span><span>Python</span><span>EventBridge</span></div></div>
+      <div class="project-card"><div class="project-name"><i class="fas fa-code"></i> Enterprise CI/CD pipeline</div><div class="project-desc">Secure GitHub Actions with SonarQube, Snyk, Trivy scanning, automated EKS rollouts + ArgoCD GitOps.</div><div class="project-stack"><span>GitHub Actions</span><span>ArgoCD</span><span>EKS</span></div></div>
+      <div class="project-card"><div class="project-name"><i class="fas fa-network-wired"></i> GitOps with ArgoCD</div><div class="project-desc">Declarative K8s deployments, automatic rollbacks, Canary strategies, full auditability via Git.</div><div class="project-stack"><span>ArgoCD</span><span>Helm</span><span>Kubernetes</span></div></div>
+      <div class="project-card"><div class="project-name"><i class="fas fa-building"></i> Terraform Module Library</div><div class="project-desc">Reusable, battle-tested modules for AWS VPC, EKS, RDS, ALB with tagging & compliance standards.</div><div class="project-stack"><span>Terraform</span><span>AWS</span><span>HCL</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><div class="section-title">🎓 education & badges</div><div class="section-line"></div></div>
+    <div class="edu-item">
+      <div class="edu-year">2013 – 2017</div>
+      <div class="edu-detail">
+        <div class="edu-degree">B.Sc. in Computer Science</div>
+        <span style="color: var(--text-muted); font-size: 0.85rem;">University of Bamenda · Cameroon</span>
+      </div>
+    </div>
+    <div class="cert-flex">
+      <div class="cert-item"><div class="cert-name">Certified Kubernetes Administrator (CKA)</div><div class="cert-meta">CNCF · in progress</div></div>
+      <div class="cert-item"><div class="cert-name">AWS Solutions Architect – Associate</div><div class="cert-meta">AWS · in progress</div></div>
+      <div class="cert-item"><div class="cert-name">HashiCorp Certified: Terraform Associate</div><div class="cert-meta">planned 2025</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <i class="fas fa-terminal"></i>   Carel Assonkeng Takoumene · Senior DevOps engineer · Edmonton · <span id="year"></span>
+  </footer>
+</div>
+
+<script>
+  function toggleExp(headerEl) {
+    const body = headerEl.nextElementSibling;
+    const iconSpan = headerEl.querySelector('.toggle-icon i');
+    if(!body) return;
+    const isOpen = body.classList.contains('open');
+    if(isOpen){
+      body.classList.remove('open');
+      if(iconSpan) iconSpan.className = "fas fa-plus";
+    } else {
+      body.classList.add('open');
+      if(iconSpan) iconSpan.className = "fas fa-minus";
+    }
+  }
+  document.getElementById('year').innerText = new Date().getFullYear();
+</script>
+</body>
+</html>
