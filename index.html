@@ -15,32 +15,33 @@
   }
 
   :root {
-    --bg-deep: #010409;
-    --bg-elevated: #0a0c10;
-    --bg-card: #0f1117;
-    --border-subtle: #21262d;
-    --border-glow: #2d3b55;
-    --text-primary: #edf2f8;
-    --text-secondary: #9ca3b5;
-    --text-muted: #6e7683;
-    --accent-cyan: #2bd0e5;
-    --accent-green: #40e99b;
-    --accent-blue: #3b82f6;
-    --accent-purple: #a855f7;
-    --glow-blue: rgba(59,130,246,0.4);
+    /* New light & airy theme — highly readable */
+    --bg-deep: #f8fafc;
+    --bg-elevated: #ffffff;
+    --bg-card: #ffffff;
+    --border-subtle: #e2e8f0;
+    --border-glow: #cbd5e1;
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --accent-cyan: #0e7c9e;
+    --accent-green: #2b6e4f;
+    --accent-blue: #2563eb;
+    --accent-purple: #7c3aed;
+    --glow-blue: rgba(37,99,235,0.1);
   }
 
   body {
-  background: var(--bg-deep);
-  color: var(--text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 15px;
-  line-height: 1.55;
-  font-weight: 400;
-  scroll-behavior: smooth;
-}
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+    scroll-behavior: smooth;
+  }
 
-  /* Animated grid background */
+  /* subtle grid background (lighter version) */
   body::before {
     content: "";
     position: fixed;
@@ -49,10 +50,10 @@
     width: 100%;
     height: 100%;
     background-image: 
-      linear-gradient(var(--border-subtle) 0.5px, transparent 0.5px),
-      linear-gradient(90deg, var(--border-subtle) 0.5px, transparent 0.5px);
+      linear-gradient(var(--border-subtle) 0.8px, transparent 0.8px),
+      linear-gradient(90deg, var(--border-subtle) 0.8px, transparent 0.8px);
     background-size: 48px 48px;
-    opacity: 0.2;
+    opacity: 0.3;
     pointer-events: none;
     z-index: 0;
   }
@@ -86,17 +87,16 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(43,208,229,0.08);
-    border: 1px solid rgba(43,208,229,0.3);
-    padding: 5px 14px;
+    background: #eef2ff;
+    border: 1px solid var(--accent-blue);
+    padding: 5px 16px;
     border-radius: 60px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.3px;
-    color: var(--accent-cyan);
+    color: var(--accent-blue);
     margin-bottom: 1.5rem;
-    backdrop-filter: blur(4px);
   }
 
   .badge i {
@@ -108,27 +108,22 @@
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.2;
-    background: linear-gradient(135deg, #ffffff 40%, var(--accent-cyan) 80%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    color: var(--text-primary);
     margin-bottom: 0.75rem;
   }
 
   .highlight-name {
-    color: var(--accent-cyan);
+    color: var(--accent-blue);
     background: none;
-    background-clip: unset;
-    -webkit-background-clip: unset;
     display: inline-block;
   }
 
   .title-tagline {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--text-secondary);
     margin-bottom: 1rem;
-    border-left: 3px solid var(--accent-green);
+    border-left: 4px solid var(--accent-green);
     padding-left: 1rem;
     letter-spacing: -0.2px;
   }
@@ -136,25 +131,25 @@
   .contact-bar {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.2rem;
+    gap: 1rem;
     margin-top: 1.5rem;
   }
 
   .contact-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-size: 0.85rem;
     color: var(--text-secondary);
-    background: rgba(33,38,45,0.5);
-    padding: 5px 12px;
+    background: #f1f5f9;
+    padding: 6px 14px;
     border-radius: 40px;
     transition: all 0.2s;
   }
 
   .contact-item i {
     width: 20px;
-    color: var(--accent-cyan);
+    color: var(--accent-blue);
     font-size: 0.9rem;
   }
 
@@ -165,7 +160,7 @@
   }
 
   .contact-item a:hover {
-    color: var(--accent-cyan);
+    color: var(--accent-blue);
   }
 
   /* photo card */
@@ -174,8 +169,7 @@
     border: 1px solid var(--border-subtle);
     border-radius: 32px;
     padding: 0.6rem;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 12px 28px -8px rgba(0,0,0,0.6);
+    box-shadow: 0 8px 20px -6px rgba(0,0,0,0.08);
     transition: transform 0.2s ease;
   }
 
@@ -225,58 +219,56 @@
     font-weight: 700;
     font-size: 1.4rem;
     letter-spacing: -0.3px;
-    background: linear-gradient(120deg, #fff, var(--accent-blue));
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    color: var(--text-primary);
   }
 
   .section-line {
     flex: 1;
-    height: 1px;
+    height: 2px;
     background: linear-gradient(90deg, var(--border-subtle), transparent);
   }
 
-  /* summary stats */
+  /* summary block */
   .summary-block {
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
     border-radius: 28px;
     padding: 1.8rem;
     margin-bottom: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
   }
 
   .summary-text {
     font-size: 1rem;
-    line-height: 1.65;
+    line-height: 1.7;
     color: var(--text-secondary);
     margin-bottom: 2rem;
-    border-left: 2px solid var(--accent-green);
+    border-left: 4px solid var(--accent-green);
     padding-left: 1.2rem;
   }
 
   .stats-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
+    gap: 1.5rem;
+    justify-content: space-around;
   }
 
   .stat-item {
-    background: rgba(15,17,23,0.7);
+    background: #f8fafc;
     border-radius: 24px;
-    padding: 0.8rem 1.4rem;
+    padding: 0.9rem 1.6rem;
     text-align: center;
     flex: 1;
-    min-width: 90px;
-    border-bottom: 2px solid var(--accent-blue);
+    min-width: 100px;
+    border-bottom: 3px solid var(--accent-blue);
   }
 
   .stat-number {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 1.9rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: var(--accent-cyan);
+    color: var(--accent-blue);
     line-height: 1.2;
   }
 
@@ -285,9 +277,10 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--text-muted);
+    font-weight: 600;
   }
 
-  /* badges / tags grid */
+  /* skills */
   .skills-wrapper {
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
@@ -323,23 +316,24 @@
   }
 
   .skill-tag {
-    background: rgba(43,208,229,0.08);
-    border: 1px solid rgba(43,208,229,0.25);
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
     padding: 5px 14px;
     border-radius: 40px;
     font-size: 0.75rem;
     font-weight: 500;
     font-family: 'JetBrains Mono', monospace;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     transition: all 0.15s;
   }
 
   .skill-tag:hover {
-    border-color: var(--accent-cyan);
-    background: rgba(43,208,229,0.15);
+    border-color: var(--accent-blue);
+    background: #eef2ff;
+    color: var(--accent-blue);
   }
 
-  /* experience cards (accordion) */
+  /* experience cards */
   .exp-card {
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
@@ -361,7 +355,7 @@
   }
 
   .exp-header:hover {
-    background: rgba(59,130,246,0.05);
+    background: #f8fafc;
   }
 
   .exp-meta {
@@ -375,6 +369,7 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
     color: var(--accent-purple);
+    font-weight: 600;
     letter-spacing: 0.2px;
   }
 
@@ -391,15 +386,15 @@
 
   .exp-title {
     font-weight: 600;
-    font-size: 1.05rem;
-    color: var(--accent-cyan);
+    font-size: 1rem;
+    color: var(--accent-blue);
     flex: 2;
   }
 
   .toggle-icon {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--accent-blue);
-    background: rgba(59,130,246,0.1);
+    background: #eef2ff;
     width: 28px;
     height: 28px;
     display: flex;
@@ -411,7 +406,7 @@
   .exp-body {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    transition: max-height 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     padding: 0 1.6rem;
   }
 
@@ -427,12 +422,12 @@
   }
 
   .bullet-list li {
-    margin-bottom: 0.65rem;
-    padding-left: 1.3rem;
+    margin-bottom: 0.7rem;
+    padding-left: 1.4rem;
     position: relative;
     font-size: 0.88rem;
     color: var(--text-secondary);
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
   .bullet-list li::before {
@@ -440,7 +435,8 @@
     position: absolute;
     left: 0;
     color: var(--accent-green);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 600;
   }
 
   /* project grid */
@@ -461,13 +457,14 @@
   .project-card:hover {
     border-color: var(--accent-blue);
     transform: translateY(-3px);
+    box-shadow: 0 8px 20px -12px rgba(0,0,0,0.1);
   }
 
   .project-name {
     font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--accent-cyan);
-    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: var(--accent-blue);
+    margin-bottom: 0.6rem;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -477,7 +474,7 @@
     font-size: 0.8rem;
     color: var(--text-secondary);
     margin-bottom: 1rem;
-    line-height: 1.45;
+    line-height: 1.5;
   }
 
   .project-stack {
@@ -487,8 +484,8 @@
   }
 
   .project-stack span {
-    background: rgba(64,233,155,0.08);
-    border: 1px solid rgba(64,233,155,0.2);
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
     padding: 3px 10px;
     border-radius: 20px;
     font-size: 0.65rem;
@@ -513,6 +510,7 @@
     font-size: 0.75rem;
     color: var(--accent-purple);
     min-width: 110px;
+    font-weight: 600;
   }
 
   .edu-detail {
@@ -521,6 +519,7 @@
 
   .edu-degree {
     font-weight: 700;
+    color: var(--text-primary);
   }
 
   .cert-flex {
@@ -536,6 +535,7 @@
     border-radius: 16px;
     flex: 1;
     min-width: 200px;
+    border: 1px solid var(--border-subtle);
   }
 
   .cert-name {
@@ -586,21 +586,21 @@
       <div class="badge">
         <i class="fas fa-cube"></i>  <span>DEVOPS · CLOUD NATIVE · SRE MINDSET</span>
       </div>
-      <h1> <span class="highlight-name">Carel Assonkeng Takoumene</span></h1>
-      <div class="title-tagline">Senior DevOps/Cloud & Infrastructure Engineer — Building scalable, secure, and reliable systems</div>
+      <h1>Carel <span class="highlight-name">Assonkeng Takoumene</span></h1>
+      <div class="title-tagline">Senior Cloud & Infrastructure Engineer — Building scalable, secure, and observable systems</div>
       <div class="contact-bar">
         <span class="contact-item"><i class="fas fa-phone-alt"></i> +1 (587) 545-9096</span>
         <span class="contact-item"><i class="fas fa-envelope"></i> takoumenecarel@icloud.com</span>
-        <span class="contact-item"><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/carel-assonkeng-takoumene-bb5a44387/">carel-assonkeng</a></span>
+        <span class="contact-item"><i class="fab fa-linkedin-in"></i> <a href="#">carel-assonkeng</a></span>
         <span class="contact-item"><i class="fas fa-map-marker-alt"></i> Edmonton, AB, Canada</span>
       </div>
     </div>
     <div class="photo-card">
       <div class="photo-frame">
-        <!-- YOUR PHOTO IS NOW DIRECTLY EMBEDDED FROM THE LINK YOU PROVIDED -->
+        <!-- YOUR PHOTO DIRECT LINK (UPDATED AS PROVIDED) -->
         <img src="https://i.postimg.cc/9fCHpDyF/Carel.png" alt="Carel Assonkeng Takoumene">
       </div>
-      <p class="photo-label"> CAREL TAKOUMENE</p>
+      <p class="photo-label">// CAREL · 2025</p>
     </div>
   </div>
 
@@ -612,11 +612,11 @@
     </div>
     <div class="summary-block">
       <div class="summary-text">
-        Senior DevOps & Cloud Engineer with 6+ years designing secure, automated, and resilient cloud infrastructure.  
+        Senior DevOps & Cloud Engineer with 7+ years designing secure, automated, and resilient cloud infrastructure.  
         Expert in AWS, Kubernetes, CI/CD, DevSecOps, and Infrastructure as Code. Successfully reduced deployment times by 40%, saved $72K annually via cost optimization, and delivered 99.9% uptime through observability and GitOps workflows.
       </div>
       <div class="stats-grid">
-        <div class="stat-item"><div class="stat-number">6+</div><div class="stat-label">Years</div></div>
+        <div class="stat-item"><div class="stat-number">7+</div><div class="stat-label">Years</div></div>
         <div class="stat-item"><div class="stat-number">40%</div><div class="stat-label">Faster Deploys</div></div>
         <div class="stat-item"><div class="stat-number">$72k</div><div class="stat-label">Annual Savings</div></div>
         <div class="stat-item"><div class="stat-number">99.9%</div><div class="stat-label">Uptime</div></div>
@@ -624,14 +624,14 @@
     </div>
   </div>
 
-  <!-- SKILLS section (cleaner) -->
+  <!-- SKILLS section -->
   <div class="section">
     <div class="section-header">
       <div class="section-title">⎇ core capabilities</div>
       <div class="section-line"></div>
     </div>
     <div class="skills-wrapper">
-      <div class="skill-category"><div class="skill-title"><i class="fas fa-cloud"></i> Cloud & Infra</div><div class="skill-tag-container"><span class="skill-tag">AWS (VPC/IAM/EC2/S3/Lambda/API-Gateway/RDS/DynamoDB/CloudFront/Route53/EKS/ECS)</span><span class="skill-tag">Azure basics</span><span class="skill-tag">GCP basics</span></div></div>
+      <div class="skill-category"><div class="skill-title"><i class="fas fa-cloud"></i> Cloud & Infra</div><div class="skill-tag-container"><span class="skill-tag">AWS (EKS/ECS/S3/VPC)</span><span class="skill-tag">Azure</span><span class="skill-tag">GCP basics</span></div></div>
       <div class="skill-category"><div class="skill-title"><i class="fas fa-code-branch"></i> CI/CD & GitOps</div><div class="skill-tag-container"><span class="skill-tag">GitHub Actions</span><span class="skill-tag">ArgoCD</span><span class="skill-tag">GitLab CI</span><span class="skill-tag">Jenkins</span></div></div>
       <div class="skill-category"><div class="skill-title"><i class="fas fa-shield-alt"></i> DevSecOps</div><div class="skill-tag-container"><span class="skill-tag">SonarQube</span><span class="skill-tag">Snyk/Trivy</span><span class="skill-tag">HashiCorp Vault</span><span class="skill-tag">IAM zero-trust</span></div></div>
       <div class="skill-category"><div class="skill-title"><i class="fas fa-cubes"></i> Orchestration & IaC</div><div class="skill-tag-container"><span class="skill-tag">Kubernetes/EKS</span><span class="skill-tag">Terraform</span><span class="skill-tag">Helm</span><span class="skill-tag">Ansible</span><span class="skill-tag">CloudFormation</span></div></div>
@@ -639,7 +639,7 @@
     </div>
   </div>
 
-  <!-- EXPERIENCE + ACCORDION -->
+  <!-- EXPERIENCE ACCORDION -->
   <div class="section">
     <div class="section-header">
       <div class="section-title">📌 experience timeline</div>
@@ -712,13 +712,20 @@
     </div>
   </div>
 
-  <!-- EDUCATION & CERTS -->
+  <!-- EDUCATION & CERTS (updated with your exact degree) -->
   <div class="section">
     <div class="section-header"><div class="section-title">🎓 education & badges</div><div class="section-line"></div></div>
-    <div class="edu-item"><div class="edu-year">2013 – 2017</div><div class="edu-detail"><strong>B.Sc. Computer Science</strong> — University of Bamenda, Cameroon<br><span style="color:#9ca3b5;">Major: Computer Science, Fundamental Computer Science</span></div></div>
+    <div class="edu-item">
+      <div class="edu-year">2013 – 2017</div>
+      <div class="edu-detail">
+        <div class="edu-degree">B.Sc. in Computer Science</div>
+        <span style="color: var(--text-muted); font-size: 0.85rem;">University of Bamenda · Cameroon</span>
+      </div>
+    </div>
     <div class="cert-flex">
-      <div class="cert-item"><div class="cert-name">Certified Kubernetes Administrator</div><div class="cert-meta">CKA · in progress</div></div>
+      <div class="cert-item"><div class="cert-name">Certified Kubernetes Administrator (CKA)</div><div class="cert-meta">CNCF · in progress</div></div>
       <div class="cert-item"><div class="cert-name">AWS Solutions Architect – Associate</div><div class="cert-meta">AWS · in progress</div></div>
+      <div class="cert-item"><div class="cert-name">HashiCorp Certified: Terraform Associate</div><div class="cert-meta">planned 2025</div></div>
     </div>
   </div>
 
